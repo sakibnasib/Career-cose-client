@@ -4,7 +4,7 @@ import Tema1 from '../../assets/Teams/team1 (1).jpg'
 import Tema2 from '../../assets/Teams/team2.jpg'
 const Banner = () => {
     return (
-        <div className="hero bg-base-200 min-h-[96px]">
+        <div className="hero overflow-hidden bg-base-200 min-h-[96px]">
   <div className="hero-content flex-col lg:flex-row-reverse">
    <div className="flex-1">
      <motion.img

@@ -1,11 +1,15 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Lottie from 'lottie-react';
 import Login from '../../assets/Lotti/Singin.json'
 import SocialLoging from '../Shared/SocialLoging';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import { useLocation } from 'react-router';
 const SingIn = () => {
   const {signInUser}=use(AuthContext)
+  const location=useLocation();
+  const navigate=useNavigate()
+  const from=location.state || '/';
   const handleSihgIn=e=>{
       e.preventDefault();
         const form = e.target;
@@ -16,6 +20,7 @@ const SingIn = () => {
         signInUser(email, password)
           .then(result =>{
             console.log(result.user)
+            navigate(from)
            })
            .catch(error => {
             console.log(error)
@@ -35,7 +40,7 @@ const SingIn = () => {
           <input type="password" name='password' className="input" placeholder="Password" />
           <button type='submit' className="btn btn-neutral mt-4"> SingIn</button>
         </form>
-        <SocialLoging></SocialLoging>
+        <SocialLoging from={from}></SocialLoging>
         <p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account?
 		<Link to='/register' className="underline dark:text-gray-800">Register</Link>
 	</p>

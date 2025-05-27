@@ -5,6 +5,10 @@ import Banner from "../pages/Home/Banner";
 import Banner2 from "../pages/Home/Banner2";
 import Register from "../pages/Register/Register";
 import SingIn from "../pages/SingnIn/SingIn";
+import JobDetails from "../pages/JobDetails/JobDetails";
+import PrivateRoute from "../routes/PrivateRoute";
+import JobApply from "../pages/JobApply/JobApply";
+import MyApplyCations from "../pages/MyApplications/MyApplyCations";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +18,21 @@ const router = createBrowserRouter([
         index:true,
         Component: Home, },
       { path: "/register", Component: Register },
+      {path:'/jobs/:id',
+        loader:({params})=>fetch(`http://localhost:3000/jobs/${params.id}`)
+        ,Component:JobDetails},
+        {
+          path:'/jobApply/:id',
+          element:<PrivateRoute>
+            <JobApply></JobApply>
+          </PrivateRoute>
+        },
+        {
+          path:'/myAppliCations',
+          element:<PrivateRoute>
+            <MyApplyCations></MyApplyCations>
+          </PrivateRoute>
+        },
       { path: "/singIn", Component: SingIn },
     ],
   },

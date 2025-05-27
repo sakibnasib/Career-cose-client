@@ -59,9 +59,13 @@ const handleSignOut=()=>{
                 </li>
               </ul>
             </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            {
+          user && <>
+           <li>
+           <NavLink to='/myAppliCations'>MyAppliCations</NavLink>
+          </li>
+          </>
+         }
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -107,17 +111,21 @@ const handleSignOut=()=>{
       )}
     </li>
 
-          <li>
-            <a>Item 3</a>
+         {
+          user && <>
+           <li>
+           <NavLink to='/myAppliCations'>MyAppliCations</NavLink>
           </li>
+          </>
+         }
         </ul>
       </div>
 
       {/* End: Auth Links */}
       <div className="navbar-end space-x-2">
-        {user? <button onClick={handleSignOut} className='btn'>Sign Out</button> : <>
+        {user? <button onClick={handleSignOut} className='btn btn-secondary'>Sign Out</button> : <>
         <NavLink to="/register">Register</NavLink>
-        <NavLink to="/singIn">SingIn</NavLink>
+        <NavLink to="/singIn"> <button className="btn btn-info">SingIn</button></NavLink>
         </>}
       </div>
     </div>
