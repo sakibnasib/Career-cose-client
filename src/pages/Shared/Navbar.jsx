@@ -66,6 +66,17 @@ const handleSignOut=()=>{
           </li>
           </>
          }
+         {/* addmin */}
+         {
+          user && <>
+           <li>
+           <NavLink to='/addJob'>Add Job</NavLink>
+          </li>
+           <li>
+           <NavLink to='/myPostedJob'>MyPostedJob</NavLink>
+          </li>
+          </>
+         }
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -115,6 +126,17 @@ const handleSignOut=()=>{
           user && <>
            <li>
            <NavLink to='/myAppliCations'>MyAppliCations</NavLink>
+          </li>
+          </>
+         }
+         {/*  */}
+          {
+          user && <>
+           <li>
+           <NavLink to='/addJob'>Add Job</NavLink>
+          </li>
+           <li>
+           <NavLink to='/myPostedJob'>MyPostedJob</NavLink>
           </li>
           </>
          }
